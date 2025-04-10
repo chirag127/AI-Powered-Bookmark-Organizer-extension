@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="64" cy="64" r="60" fill="#6200ea" />
+  
+  <!-- Bookmark Shape -->
+  <path d="M42 32 v48 l22 -16 l22 16 v-48 z" fill="#ffffff" stroke="#03dac6" stroke-width="4" />
+  
+  <!-- AI Circuit Pattern -->
+  <circle cx="64" cy="52" r="8" fill="#03dac6" />
+  <line x1="64" y1="60" x2="64" y2="68" stroke="#03dac6" stroke-width="3" />
+  <line x1="56" y1="52" x2="48" y2="52" stroke="#03dac6" stroke-width="3" />
+  <line x1="72" y1="52" x2="80" y2="52" stroke="#03dac6" stroke-width="3" />
+  <line x1="56" y1="44" x2="48" y2="36" stroke="#03dac6" stroke-width="3" />
+  <line x1="72" y1="44" x2="80" y2="36" stroke="#03dac6" stroke-width="3" />
+  
+  <!-- Nodes -->
+  <circle cx="48" cy="52" r="3" fill="#ffffff" />
+  <circle cx="80" cy="52" r="3" fill="#ffffff" />
+  <circle cx="48" cy="36" r="3" fill="#ffffff" />
+  <circle cx="80" cy="36" r="3" fill="#ffffff" />
+  <circle cx="64" cy="68" r="3" fill="#ffffff" />
+</svg>

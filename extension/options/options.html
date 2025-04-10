@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Bookmark Organizer Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="../icons/icon48.png" alt="AI Bookmark Organizer Logo">
+        <h1>AI Bookmark Organizer Settings</h1>
+      </div>
+    </header>
+
+    <main>
+      <section class="settings-section">
+        <h2>General Settings</h2>
+        
+        <div class="setting-item">
+          <div class="setting-info">
+            <h3>Auto-Categorization</h3>
+            <p>Automatically categorize new bookmarks using AI</p>
+          </div>
+          <div class="setting-control">
+            <label class="switch">
+              <input type="checkbox" id="categoriesEnabled" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <div class="setting-info">
+            <h3>Auto-Tagging</h3>
+            <p>Automatically generate tags for new bookmarks using AI</p>
+          </div>
+          <div class="setting-control">
+            <label class="switch">
+              <input type="checkbox" id="tagsEnabled" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <div class="setting-info">
+            <h3>Content Suggestions</h3>
+            <p>Receive suggestions for related content based on your bookmarks</p>
+          </div>
+          <div class="setting-control">
+            <label class="switch">
+              <input type="checkbox" id="suggestionsEnabled" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2>Archiving Settings</h2>
+        
+        <div class="setting-item">
+          <div class="setting-info">
+            <h3>Auto-Archive</h3>
+            <p>Automatically archive bookmarks that haven't been accessed for a specified period</p>
+          </div>
+          <div class="setting-control">
+            <label class="switch">
+              <input type="checkbox" id="autoArchiveEnabled" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="setting-item" id="archiveDaysContainer">
+          <div class="setting-info">
+            <h3>Archive After</h3>
+            <p>Archive bookmarks after this many days of inactivity</p>
+          </div>
+          <div class="setting-control">
+            <div class="input-with-label">
+              <input type="number" id="autoArchiveDays" min="1" max="365" value="180">
+              <span>days</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <div class="setting-info">
+            <h3>Excluded Folders</h3>
+            <p>Select bookmark folders to exclude from auto-archiving</p>
+          </div>
+          <div class="setting-control">
+            <button id="selectFoldersButton" class="button">Select Folders</button>
+          </div>
+        </div>
+        
+        <div class="excluded-folders" id="excludedFoldersList">
+          <p class="empty-state">No folders excluded</p>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2>Custom Categories</h2>
+        <p class="section-description">Add custom categories for your bookmarks</p>
+        
+        <div class="custom-categories">
+          <div class="custom-categories-list" id="customCategoriesList">
+            <p class="empty-state">No custom categories</p>
+          </div>
+          
+          <div class="add-category">
+            <input type="text" id="newCategoryInput" placeholder="New category name">
+            <button id="addCategoryButton" class="button">Add</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2>Data Management</h2>
+        
+        <div class="setting-item">
+          <div class="setting-info">
+            <h3>Export Data</h3>
+            <p>Export your bookmark data including categories and tags</p>
+          </div>
+          <div class="setting-control">
+            <button id="exportDataButton" class="button">Export</button>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <div class="setting-info">
+            <h3>Import Data</h3>
+            <p>Import bookmark data from a previously exported file</p>
+          </div>
+          <div class="setting-control">
+            <button id="importDataButton" class="button">Import</button>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <div class="setting-info">
+            <h3>Reset All Data</h3>
+            <p>Reset all bookmark categories, tags, and settings</p>
+          </div>
+          <div class="setting-control">
+            <button id="resetDataButton" class="button danger">Reset</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="actions">
+        <button id="saveButton" class="button primary">Save Changes</button>
+      </div>
+      <div class="info">
+        <p>AI-Powered Bookmark Organizer v1.0.0</p>
+        <p><a href="https://github.com/chirag127/AI-Powered-Bookmark-Organizer-extension" target="_blank">GitHub</a> | <a href="../privacy-policy.html" target="_blank">Privacy Policy</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Folder Selection Modal -->
+  <div class="modal" id="folderSelectionModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Select Folders to Exclude</h2>
+        <button class="close-button" id="closeFolderModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="folder-tree" id="folderTree">
+          <p class="loading">Loading folders...</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="cancelFolderSelection" class="button">Cancel</button>
+        <button id="saveFolderSelection" class="button primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
