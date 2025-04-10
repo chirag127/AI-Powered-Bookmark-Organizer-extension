@@ -145,3 +145,4 @@ extension/icons/*.ai
 
 # API keys and secrets
 *.pem
+backend/package-lock.json

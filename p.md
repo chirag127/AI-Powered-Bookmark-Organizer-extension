@@ -176,10 +176,3 @@ Several factors are critical for the extension's success:
 The AI-Powered Bookmark Organizer browser extension offers a innovative solution for managing bookmarks, leveraging AI to automate categorization, tagging, and content suggestion. Its technical setup, using Manifest V3, Gemini 2.0 Flash Lite, and Express.js, ensures compatibility, efficiency, and scalability. Further exploration could involve user testing and market analysis to refine these concepts, ensuring they meet real-world demands in 2025.
 
 
-create icnos/icon.svg and then write a script to convert it into
-
-icons/icon16.png
-icons/icon48.png
-icons/icon128.png
-
-then install the dependencies and run the script
