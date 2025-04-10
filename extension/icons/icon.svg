@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6200ea" />
+      <stop offset="100%" stop-color="#03dac6" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="240" fill="#1e1e1e" stroke="url(#gradient)" stroke-width="16" filter="url(#shadow)" />
+  
+  <!-- Bookmark Structure -->
+  <path d="M256 96 L256 416 M128 176 L384 176 M128 296 L384 296" stroke="url(#gradient)" stroke-width="24" stroke-linecap="round" />
+  
+  <!-- Bookmark Indicators -->
+  <circle cx="256" cy="176" r="32" fill="url(#gradient)" />
+  <circle cx="256" cy="296" r="32" fill="url(#gradient)" />
+  
+  <!-- Bookmark Pages -->
+  <path d="M176 116 L336 116 L336 156 L176 156 Z" fill="url(#gradient)" opacity="0.7" />
+  <path d="M176 236 L336 236 L336 276 L176 276 Z" fill="url(#gradient)" opacity="0.7" />
+  <path d="M176 356 L336 356 L336 396 L176 396 Z" fill="url(#gradient)" opacity="0.7" />
+  
+  <!-- AI Processing Indicators -->
+  <circle cx="256" cy="256" r="112" fill="none" stroke="url(#gradient)" stroke-width="8" stroke-dasharray="20,12" />
+  <path d="M368 256 A112 112 0 0 0 256 144" stroke="url(#gradient)" stroke-width="12" fill="none" stroke-linecap="round" />
+  <path d="M144 256 A112 112 0 0 0 256 368" stroke="url(#gradient)" stroke-width="12" fill="none" stroke-linecap="round" />
+</svg>

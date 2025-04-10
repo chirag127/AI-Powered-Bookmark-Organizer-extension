@@ -1,0 +1,14 @@
+{
+  "name": "bookmark-organizer-scripts",
+  "version": "1.0.0",
+  "description": "Scripts for the AI-Powered Bookmark Organizer extension",
+  "main": "convert-icons.js",
+  "scripts": {
+    "convert-icons": "node convert-icons.js"
+  },
+  "author": "Chirag Singhal",
+  "license": "MIT",
+  "dependencies": {
+    "sharp": "^0.32.1"
+  }
+}
