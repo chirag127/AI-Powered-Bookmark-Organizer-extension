@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Bookmark Organizer</title>
+    <meta name="description" content="A browser extension that uses AI to automatically categorize, tag, and organize your bookmarks.">
+    <meta name="keywords" content="bookmark organizer, AI, browser extension, bookmark management, Chrome extension">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="animate-fade-in">
+                <img src="assets/images/logo.svg" alt="AI-Powered Bookmark Organizer Logo" class="logo">
+                <h1>AI-Powered Bookmark Organizer</h1>
+                <p class="tagline">Organize your bookmarks intelligently with the power of AI</p>
+            </div>
+            
+            <div class="header-buttons animate-fade-in delay-1">
+                <a href="https://github.com/chirag127/AI-Powered-Bookmark-Organizer-extension" class="btn" target="_blank">
+                    <i class="fab fa-github"></i> GitHub Repository
+                </a>
+                <a href="privacy-policy.html" class="btn btn-secondary" target="_blank">
+                    <i class="fas fa-shield-alt"></i> Privacy Policy
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- About Section -->
+    <section id="about">
+        <div class="container animate-fade-in delay-2">
+            <h2>About the Extension</h2>
+            <p>The AI-Powered Bookmark Organizer is a browser extension designed to help users manage their bookmarks efficiently. It uses artificial intelligence to automatically categorize and tag bookmarks, suggest related content, and archive unused ones, ensuring a tidy and organized collection.</p>
+            <p>This tool is ideal for researchers, students, content creators, and professionals who save many web pages and struggle with manual organization. Our AI-powered solution saves you time and keeps your digital resources accessible and well-structured.</p>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container animate-fade-in delay-3">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3 class="feature-title">Automatic Categorization & Tagging</h3>
+                    <p>The extension analyzes bookmark content using AI to assign relevant categories and tags. For example, a tech article might be tagged "Technology" and "AI" automatically.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="feature-title">Content Suggestion</h3>
+                    <p>Based on your existing bookmarks, the extension suggests related content that may be of interest, enhancing discovery and expanding your resources.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-archive"></i>
+                    </div>
+                    <h3 class="feature-title">Archiving Old Bookmarks</h3>
+                    <p>The extension identifies bookmarks that haven't been accessed for a user-defined period and moves them to an archive, helping declutter your bookmark bar.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="feature-title">Search & Filter</h3>
+                    <p>Search for bookmarks using keywords, categories, or tags, making it easy to locate specific saved pages with powerful filtering options.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3 class="feature-title">Customization</h3>
+                    <p>Create custom categories, tags, and archiving rules to personalize your bookmark organization according to your preferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Installation Section -->
+    <section id="installation">
+        <div class="container">
+            <h2>Installation Instructions</h2>
+            <div class="installation-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Download the Extension</h3>
+                        <p>Clone or download the extension from the <a href="https://github.com/chirag127/AI-Powered-Bookmark-Organizer-extension" target="_blank">GitHub repository</a>.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Open Extensions Page</h3>
+                        <p>In Chrome, navigate to <code>chrome://extensions/</code>. In Firefox, navigate to <code>about:addons</code> and select "Extensions". In Edge, navigate to <code>edge://extensions/</code>.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Enable Developer Mode</h3>
+                        <p>Toggle on "Developer mode" in the top-right corner (Chrome/Edge) or click the gear icon and select "Debug Add-ons" (Firefox).</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Load Unpacked Extension</h3>
+                        <p>Click "Load unpacked" (Chrome/Edge) or "Load Temporary Add-on" (Firefox) and select the <code>extension</code> folder from the downloaded repository.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Configure the Extension</h3>
+                        <p>Click on the extension icon in your browser toolbar and follow the setup instructions to configure your preferences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How to Use Section -->
+    <section id="how-to-use">
+        <div class="container">
+            <h2>How to Use</h2>
+            <p>Using the AI-Powered Bookmark Organizer is simple and intuitive:</p>
+            <ol>
+                <li><strong>Add Bookmarks:</strong> Save web pages as you normally would using your browser's bookmark feature.</li>
+                <li><strong>Automatic Organization:</strong> The extension will automatically categorize and tag your bookmarks based on their content.</li>
+                <li><strong>View Organized Bookmarks:</strong> Click on the extension icon to view your organized bookmarks, sorted by categories and tags.</li>
+                <li><strong>Search and Filter:</strong> Use the search bar and filters to find specific bookmarks quickly.</li>
+                <li><strong>Customize:</strong> Adjust categories, tags, and archiving rules in the extension settings to suit your preferences.</li>
+                <li><strong>Discover Related Content:</strong> Explore suggested content related to your bookmarks to discover new resources.</li>
+            </ol>
+        </div>
+    </section>
+    
+    <!-- Technology Stack Section -->
+    <section id="tech-stack">
+        <div class="container">
+            <h2>Technology Stack</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-html5"></i></div>
+                    <span>HTML5</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-css3-alt"></i></div>
+                    <span>CSS3</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-js"></i></div>
+                    <span>JavaScript</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-chrome"></i></div>
+                    <span>Manifest V3</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fas fa-brain"></i></div>
+                    <span>Gemini 2.0</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-node-js"></i></div>
+                    <span>Express.js</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>AI-Powered Bookmark Organizer</h3>
+                    <p>Organize your bookmarks intelligently with the power of AI</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/chirag127/AI-Powered-Bookmark-Organizer-extension" target="_blank">GitHub</a>
+                    <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; <span id="current-year">2023</span> AI-Powered Bookmark Organizer. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

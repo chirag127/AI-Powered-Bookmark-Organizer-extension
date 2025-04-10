@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered Bookmark Organizer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>AI-Powered Bookmark Organizer</h1>
+    </header>
+    
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Search bookmarks...">
+      <button id="search-button">Search</button>
+    </div>
+    
+    <div class="tabs">
+      <button class="tab-button active" data-tab="categories">Categories</button>
+      <button class="tab-button" data-tab="recent">Recent</button>
+      <button class="tab-button" data-tab="suggestions">Suggestions</button>
+    </div>
+    
+    <div class="tab-content active" id="categories-tab">
+      <div class="categories-list">
+        <p>Loading categories...</p>
+      </div>
+    </div>
+    
+    <div class="tab-content" id="recent-tab">
+      <div class="recent-bookmarks">
+        <p>Loading recent bookmarks...</p>
+      </div>
+    </div>
+    
+    <div class="tab-content" id="suggestions-tab">
+      <div class="suggestions-list">
+        <p>Loading suggestions...</p>
+      </div>
+    </div>
+    
+    <footer>
+      <button id="add-bookmark-button">Add Current Page</button>
+      <button id="settings-button">Settings</button>
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+/* CSS Variables */
+:root {
+  --primary-color: #6200ea;
+  --primary-light: #9d46ff;
+  --primary-dark: #0a00b6;
+  --secondary-color: #03dac6;
+  --text-primary: #ffffff;
+  --text-secondary: #b0bec5;
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-card: #2d2d2d;
+  --success: #00c853;
+  --warning: #ffab00;
+  --error: #ff5252;
+  --border-radius: 8px;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2.5rem;
+  --transition-speed: 0.3s;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+h1 {
+  font-size: 2rem;
+  color: var(--primary-light);
+  margin-bottom: var(--spacing-xs);
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--bg-secondary);
+  padding-bottom: var(--spacing-sm);
+}
+
+/* Option Sections */
+.option-section {
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.option-item {
+  margin-bottom: var(--spacing-lg);
+}
+
+.option-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: var(--spacing-xs);
+}
+
+/* Form Elements */
+input[type="checkbox"] {
+  margin-right: var(--spacing-sm);
+}
+
+input[type="text"], select {
+  background-color: var(--bg-card);
+  border: 1px solid var(--bg-primary);
+  color: var(--text-primary);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  width: 100%;
+  margin-top: var(--spacing-xs);
+}
+
+select[multiple] {
+  height: 100px;
+}
+
+button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--primary-color);
+  color: var(--text-primary);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+button:hover {
+  background-color: var(--primary-light);
+}
+
+button.danger {
+  background-color: var(--error);
+}
+
+button.danger:hover {
+  background-color: #ff7676;
+}
+
+/* Custom Categories */
+.custom-categories {
+  margin-top: var(--spacing-md);
+}
+
+.category-list {
+  margin-bottom: var(--spacing-md);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-card);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-sm);
+}
+
+.delete-button {
+  background-color: transparent;
+  color: var(--error);
+  padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.delete-button:hover {
+  background-color: rgba(255, 82, 82, 0.1);
+}
+
+.add-category {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.add-category input {
+  flex: 1;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--spacing-xl);
+}
+
+#save-button {
+  padding: var(--spacing-sm) var(--spacing-xl);
+  font-size: 1rem;
+}
+
+.status-message {
+  color: var(--success);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
