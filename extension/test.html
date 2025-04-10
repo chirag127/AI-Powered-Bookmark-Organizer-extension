@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Bookmark Organizer Test Page</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #6200ea;
+      border-bottom: 2px solid #6200ea;
+      padding-bottom: 10px;
+    }
+    .test-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #6200ea;
+      margin-top: 0;
+    }
+    button {
+      background-color: #6200ea;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    button:hover {
+      background-color: #7c4dff;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    #result {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #e8f5e9;
+      border-radius: 4px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>AI Bookmark Organizer Test Page</h1>
+  
+  <div class="test-section">
+    <h2>Extension Installation Test</h2>
+    <p>This page helps you verify that the AI Bookmark Organizer extension is installed and working correctly.</p>
+    <button id="check-extension">Check Extension</button>
+    <div id="result"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>Bookmark This Page</h2>
+    <p>Click the button below to bookmark this page. The extension should automatically categorize it.</p>
+    <button id="bookmark-page">Bookmark This Page</button>
+  </div>
+  
+  <div class="test-section">
+    <h2>Extension Debugging</h2>
+    <p>If you're having issues with the extension, check the following:</p>
+    <ol>
+      <li>Open Chrome's extension page: <code>chrome://extensions/</code></li>
+      <li>Make sure "Developer mode" is enabled</li>
+      <li>Find the AI Bookmark Organizer extension and click "Errors" to see any error messages</li>
+      <li>Click "background page" to open the DevTools for the background script</li>
+      <li>Check the Console tab for any error messages</li>
+    </ol>
+  </div>
+  
+  <div class="test-section">
+    <h2>Backend Server Status</h2>
+    <p>Check if the backend server is running:</p>
+    <button id="check-server">Check Server</button>
+    <div id="server-result"></div>
+  </div>
+  
+  <script>
+    document.getElementById('check-extension').addEventListener('click', function() {
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+      
+      // Check if the extension is installed by trying to send a message
+      if (typeof chrome !== 'undefined' && chrome.runtime) {
+        try {
+          chrome.runtime.sendMessage('check-extension-status', function(response) {
+            if (chrome.runtime.lastError) {
+              resultDiv.textContent = 'Extension is installed but not responding. Check the background script for errors.';
+              resultDiv.style.backgroundColor = '#ffebee';
+            } else if (response) {
+              resultDiv.textContent = 'Extension is installed and working!';
+              resultDiv.style.backgroundColor = '#e8f5e9';
+            } else {
+              resultDiv.textContent = 'Extension is installed but returned an unexpected response.';
+              resultDiv.style.backgroundColor = '#fff8e1';
+            }
+          });
+        } catch (error) {
+          resultDiv.textContent = 'Error checking extension: ' + error.message;
+          resultDiv.style.backgroundColor = '#ffebee';
+        }
+      } else {
+        resultDiv.textContent = 'Chrome extension API not available. Make sure you\'re using Chrome and the extension is installed.';
+        resultDiv.style.backgroundColor = '#ffebee';
+      }
+    });
+    
+    document.getElementById('bookmark-page').addEventListener('click', function() {
+      if (typeof chrome !== 'undefined' && chrome.bookmarks) {
+        chrome.bookmarks.create({
+          title: document.title,
+          url: window.location.href
+        }, function() {
+          alert('Page bookmarked successfully!');
+        });
+      } else {
+        alert('Chrome bookmarks API not available. Make sure you\'re using Chrome and the extension has bookmarks permission.');
+      }
+    });
+    
+    document.getElementById('check-server').addEventListener('click', function() {
+      const serverResult = document.getElementById('server-result');
+      serverResult.style.display = 'block';
+      serverResult.textContent = 'Checking server...';
+      serverResult.style.backgroundColor = '#f5f5f5';
+      
+      fetch('http://localhost:3000/api/health')
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Server not responding');
+        })
+        .then(data => {
+          serverResult.textContent = 'Server is running!';
+          serverResult.style.backgroundColor = '#e8f5e9';
+        })
+        .catch(error => {
+          serverResult.textContent = 'Server is not running or not accessible. Make sure the backend server is started.';
+          serverResult.style.backgroundColor = '#ffebee';
+        });
+    });
+  </script>
+</body>
+</html>
