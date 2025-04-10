@@ -1,10 +1,10 @@
-const geminiService = require('../services/geminiService');
-const logger = require('../utils/logger');
+const geminiService = require("../services/geminiService");
+const logger = require("../utils/logger");
 
 // Cache for suggestions to avoid frequent API calls
 let suggestionsCache = {
-  data: [],
-  timestamp: 0
+    data: [],
+    timestamp: 0,
 };
 
 // Cache expiration time (24 hours)
@@ -17,49 +17,53 @@ const CACHE_EXPIRATION = 24 * 60 * 60 * 1000;
  * @param {Function} next - Express next middleware function
  */
 const getSuggestions = async (req, res, next) => {
-  try {
-    // Check if cache is valid
-    const now = Date.now();
-    if (suggestionsCache.data.length > 0 && now - suggestionsCache.timestamp < CACHE_EXPIRATION) {
-      return res.status(200).json(suggestionsCache.data);
+    try {
+        // Check if cache is valid
+        const now = Date.now();
+        if (
+            suggestionsCache.data.length > 0 &&
+            now - suggestionsCache.timestamp < CACHE_EXPIRATION
+        ) {
+            return res.status(200).json(suggestionsCache.data);
+        }
+
+        // Get bookmarks directly from the bookmarkController module
+        const bookmarkController = require("./bookmarkController");
+        // Access the bookmarks array directly instead of calling the controller function
+        const bookmarks = bookmarkController.bookmarks;
+
+        // If no bookmarks, return empty array
+        if (!bookmarks || bookmarks.length === 0) {
+            return res.status(200).json([]);
+        }
+
+        // Generate suggestions based on bookmarks
+        const suggestions = await geminiService.generateSuggestions(bookmarks);
+
+        // Update cache
+        suggestionsCache = {
+            data: suggestions,
+            timestamp: now,
+        };
+
+        res.status(200).json(suggestions);
+    } catch (error) {
+        logger.error(`Error getting suggestions: ${error.message}`);
+        next(error);
     }
-    
-    // Get bookmarks from the bookmark controller
-    const bookmarkController = require('./bookmarkController');
-    const bookmarks = bookmarkController.getAllBookmarks({}, { json: (data) => data }, {});
-    
-    // If no bookmarks, return empty array
-    if (!bookmarks || bookmarks.length === 0) {
-      return res.status(200).json([]);
-    }
-    
-    // Generate suggestions based on bookmarks
-    const suggestions = await geminiService.generateSuggestions(bookmarks);
-    
-    // Update cache
-    suggestionsCache = {
-      data: suggestions,
-      timestamp: now
-    };
-    
-    res.status(200).json(suggestions);
-  } catch (error) {
-    logger.error(`Error getting suggestions: ${error.message}`);
-    next(error);
-  }
 };
 
 /**
  * Clear suggestions cache
  */
 const clearSuggestionsCache = () => {
-  suggestionsCache = {
-    data: [],
-    timestamp: 0
-  };
+    suggestionsCache = {
+        data: [],
+        timestamp: 0,
+    };
 };
 
 module.exports = {
-  getSuggestions,
-  clearSuggestionsCache
+    getSuggestions,
+    clearSuggestionsCache,
 };
